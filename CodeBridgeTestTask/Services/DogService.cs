@@ -13,7 +13,7 @@ namespace CodeBridgeTestTask.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<List<Dog>> GetDogs(string attribute = null, string order = null, int pageNumber = 1, int limit = 10)
+        public async Task<List<Dog>> GetDogs(string attribute = null, string order = "desc", int pageNumber = 1, int limit = 10)
         {
             return await _unitOfWork.DogRepository.GetDogsAsync(attribute, order, pageNumber, limit);
         }

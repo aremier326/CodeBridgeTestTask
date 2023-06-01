@@ -9,7 +9,7 @@ namespace DAL.Interfaces.IRepositories
 {
     public interface IDogRepository
     {
-        Task<List<Dog>> GetDogsAsync(string attribute = null, string order = null,
+        Task<List<Dog>> GetDogsAsync(string attribute = null, string order = "desc",
             int pageNumber = 1, int limit = 10);
         Task<Dog> GetDogByIdAsync(int id);
         Task CreateDogAsync(Dog dog);

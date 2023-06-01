@@ -30,7 +30,7 @@ namespace DAL.Repositories
             return await _dbContext.Dogs.FindAsync(id);
         }
 
-        public async Task<List<Dog>> GetDogsAsync(string attribute = null, string order = null, int pageNumber = 1, int limit = 10)
+        public async Task<List<Dog>> GetDogsAsync(string attribute = null, string order = "desc", int pageNumber = 1, int limit = 10)
         {
             var query = _dbContext.Dogs.AsQueryable();
 

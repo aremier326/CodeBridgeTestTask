@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBridgeTestTask", "CodeBridgeTestTask\CodeBridgeTestTask.csproj", "{0334E1B4-BCA6-431B-908E-E9CD57246AE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBridgeTestTask", "CodeBridgeTestTask\CodeBridgeTestTask.csproj", "{0334E1B4-BCA6-431B-908E-E9CD57246AE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Interfaces", "DAL.Interfaces\DAL.Interfaces.csproj", "{A03C65F1-2172-47E6-A2F2-61640D22CE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.Interfaces", "DAL.Interfaces\DAL.Interfaces.csproj", "{A03C65F1-2172-47E6-A2F2-61640D22CE17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4B440E7A-90A2-414A-BF96-2465D7496648}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{4B440E7A-90A2-414A-BF96-2465D7496648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

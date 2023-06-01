@@ -25,7 +25,7 @@ namespace CodeBridgeTestTask.Controllers
         }
 
         [HttpGet("dogs")]
-        public async Task<IActionResult> GetDogs(string attribute = null, string order = null,
+        public async Task<IActionResult> GetDogs(string attribute = null, string order = "desc",
             int pageNumber = 1, int limit = 10)
         {
             var dogs = await _dogService.GetDogs(attribute, order, pageNumber, limit);
