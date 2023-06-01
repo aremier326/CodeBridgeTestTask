@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CodeBridgeTestTask.Migrations
+namespace DAL.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

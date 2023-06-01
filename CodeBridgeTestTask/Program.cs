@@ -1,5 +1,11 @@
 using CodeBridgeTestTask.Data;
+using CodeBridgeTestTask.IServices;
 using CodeBridgeTestTask.RateLimitingMiddleware;
+using CodeBridgeTestTask.Services;
+using DAL.Interfaces.IRepositories;
+using DAL.Interfaces.IUnitOfWork;
+using DAL.Repositories;
+using DAL.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +22,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<DogDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IDogRepository, DogRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDogService, DogService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

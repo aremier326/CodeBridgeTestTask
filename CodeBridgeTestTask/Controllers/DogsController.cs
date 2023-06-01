@@ -1,4 +1,5 @@
 ﻿using CodeBridgeTestTask.Data;
+using CodeBridgeTestTask.IServices;
 using CodeBridgeTestTask.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,11 @@ namespace CodeBridgeTestTask.Controllers
     [ApiController]
     public class DogsController : ControllerBase
     {
-        private readonly DogDbContext _dbContext;
+        private readonly IDogService _dogService;
 
-        public DogsController(DogDbContext dbContext)
+        public DogsController(IDogService dogService)
         {
-            _dbContext = dbContext;
+            _dogService = dogService;
         }
 
         [HttpGet("ping")]
@@ -27,33 +28,7 @@ namespace CodeBridgeTestTask.Controllers
         public async Task<IActionResult> GetDogs(string attribute = null, string order = null,
             int pageNumber = 1, int limit = 10)
         {
-            var query = _dbContext.Dogs.AsQueryable();
-
-            if (!string.IsNullOrEmpty(attribute) && !string.IsNullOrEmpty(order))
-            {
-                switch (attribute.ToLower())
-                {
-                    case "name":
-                        query = (order.ToLower() == "desc") ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-                        break;
-                    case "color":
-                        query = (order.ToLower() == "desc") ? query.OrderByDescending(x => x.Color) : query.OrderBy(x => x.Color);
-                        break;
-                    case "tail_length":
-                        query = (order.ToLower() == "desc") ? query.OrderByDescending(x => x.TailLength) : query.OrderBy(x => x.TailLength);
-                        break;
-                    case "weight":
-                        query = (order.ToLower() == "desc") ? query.OrderByDescending(x => x.Weight) : query.OrderBy(x => x.Weight);
-                        break;
-                    default:
-                        return BadRequest("Invalid sorting attribute!");
-                }
-            }
-
-            // Pagination
-            query = query.Skip((pageNumber - 1) * limit).Take(limit);
-
-            var dogs = await query.ToListAsync();
+            var dogs = await _dogService.GetDogs(attribute, order, pageNumber, limit);
             return Ok(dogs);
         }
 
@@ -65,15 +40,15 @@ namespace CodeBridgeTestTask.Controllers
                 return BadRequest(ModelState);
             }
 
-            if(_dbContext.Dogs.Any(d =>d.Name == dog.Name))
+            try
             {
-                return Conflict("Dog with the same name exists already!");
+                await _dogService.CreateDog(dog);
+                return CreatedAtAction(nameof(GetDogs), new { id = dog.Id }, dog);
             }
-
-            _dbContext.Dogs.Add(dog);
-            await _dbContext.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetDogs), new {id = dog.Id}, dog);
+            catch (Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
         }
     }
 }

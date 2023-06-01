@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBridgeTestTask", "CodeBridgeTestTask\CodeBridgeTestTask.csproj", "{0334E1B4-BCA6-431B-908E-E9CD57246AE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Interfaces", "DAL.Interfaces\DAL.Interfaces.csproj", "{A03C65F1-2172-47E6-A2F2-61640D22CE17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4B440E7A-90A2-414A-BF96-2465D7496648}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0334E1B4-BCA6-431B-908E-E9CD57246AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0334E1B4-BCA6-431B-908E-E9CD57246AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0334E1B4-BCA6-431B-908E-E9CD57246AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03C65F1-2172-47E6-A2F2-61640D22CE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03C65F1-2172-47E6-A2F2-61640D22CE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03C65F1-2172-47E6-A2F2-61640D22CE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03C65F1-2172-47E6-A2F2-61640D22CE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B440E7A-90A2-414A-BF96-2465D7496648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B440E7A-90A2-414A-BF96-2465D7496648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B440E7A-90A2-414A-BF96-2465D7496648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B440E7A-90A2-414A-BF96-2465D7496648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
